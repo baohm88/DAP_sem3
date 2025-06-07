@@ -1,30 +1,32 @@
-"""Entry point for the application."""
-import sys
+
 from getpass import getpass
-from hospital_management.models.database import Database
-from hospital_management.cli.menu import HospitalCLI
+from models.database import Database
+from cli.menu import Menu
 from mysql.connector import Error
+import sys
+
+def prompt_creds():
+    host = input("Host [localhost]: ").strip() or "localhost"
+    user = input("User [root]: ").strip() or "root"
+    pwd  = getpass("Password: ") or "Bao@1234"
+    db   = input("Database [hospital_db]: ").strip() or "hospital_db"
+    return host, user, pwd, db
 
 def main():
     print("\n🏥 Hospital Management System Setup")
     print("Configure your database connection (press Enter for defaults)\n")
-    
-    host = input("MySQL Host [localhost]: ").strip() or "localhost"
-    user = input("MySQL User [root]: ").strip() or "root"
-    password = getpass("MySQL Password: ")
-    db_name = input("Database Name [hospital_db]: ").strip() or "hospital_db"
 
+    creds = prompt_creds()
+    db = Database(*creds)
     try:
-
-        db = Database(host, user, password, db_name)
-        cli = HospitalCLI(db)
-        cli.run()
+        Menu(db).home()
+    except KeyboardInterrupt:
+        print("\nOperation cancelled.")
     except Error as e:
         print(f"❌ Failed to initialize database: {e}")
         sys.exit(1)
     finally:
-        if 'db' in locals():
-            db.close()
+        db.close()
 
 if __name__ == "__main__":
     main()
