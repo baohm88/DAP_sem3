@@ -115,22 +115,3 @@ Enter the corresponding **number** and follow the prompts. Tables are rendered w
 
 ---
 
-## ✏️  Configuration Tips
-
-* **Change defaults** – Edit constants at the top of `models/database.py` (or the prompt function in the monolithic script).
-* **Seed data** – You can import CSVs or run SQL inserts; foreign‑key constraints are enabled.
-* **Docker‑ise** – Wrap MySQL + the Python app in a `docker‑compose.yml` (optional, not included here).
-
----
-
-## 📜 License
-
-MIT License – do whatever you’d like, but please retain attribution.
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! Open an issue first to discuss major changes.
-
-Happy coding ‑ and stay healthy! :)
