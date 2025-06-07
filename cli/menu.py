@@ -100,7 +100,7 @@ class Menu:
 \t6. Sort patients by DOB (ASC)
 \t7. Sort patients by DOB (DESC)
 \t8. Back to Home
-======================================================""")
+=======================================================""")
             
             ch = input("Select » ").strip()
             if ch == "1": self._add_patient()
@@ -133,16 +133,16 @@ class Menu:
     def appointments_menu(self):
         while True:
             print("""\n==================== Appointments Menu ====================
-\t1 Add new appointment
-\t2 Search appointment by ID
-\t3 Search appointments by Patient ID
-\t4 Search appointments by Doctor ID
-\t5 View Today's appointments
-\t6 Sort appointments by date (ASC)
-\t7 Sort appointments by date (DESC)
-\t8 Update appointment
-\t9 Back to Home
-======================================================""")
+\t1. Add new appointment
+\t2. Search appointment by ID
+\t3. Search appointments by Patient ID
+\t4. Search appointments by Doctor ID
+\t5. View Today's appointments
+\t6. Sort appointments by date (ASC)
+\t7. Sort appointments by date (DESC)
+\t8. Update appointment
+\t9. Back to Home
+===========================================================""")
             
             ch = input("Select » ").strip()
             if ch == "1": self._add_appointment()
